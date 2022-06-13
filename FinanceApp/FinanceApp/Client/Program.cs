@@ -18,4 +18,6 @@ builder.Services.AddApiAuthorization();
 
 builder.Services.AddMudServices();
 
+var apiKey = builder.Configuration["Polygon:ApiKey"];
+
 await builder.Build().RunAsync();
