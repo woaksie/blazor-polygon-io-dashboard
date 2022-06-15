@@ -1,5 +1,8 @@
+using AutoMapper;
 using FinanceApp.Server.Data;
 using FinanceApp.Server.Models;
+using FinanceApp.Server.Models.TickerDetails;
+using FinanceApp.Shared.Models.TickerDetails;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +30,8 @@ builder.Services.AddAuthentication()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-builder.Services.AddMudServices();
+// AutoMapper
+builder.Services.AddAutoMapper(typeof(TickerDetailsProfile));
 
 builder.Services.AddHttpClient();
 
