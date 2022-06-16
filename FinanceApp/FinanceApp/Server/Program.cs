@@ -1,13 +1,13 @@
 using AutoMapper;
 using FinanceApp.Server.Data;
 using FinanceApp.Server.Models;
-using FinanceApp.Server.Models.TickerDetails;
 using FinanceApp.Shared.Models.TickerDetails;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using MudBlazor.Services;
+using FinanceApp.Server.Models.TickerDetails.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
