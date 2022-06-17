@@ -8,13 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using MudBlazor.Services;
 using FinanceApp.Server.Models.TickerDetails.Profiles;
+using FinanceApp.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("HomeDb") ?? throw new InvalidOperationException("Connection string 'HomeDb' not found.");
+var connectionString = builder.Configuration.GetConnectionString("HomeDb") ??
+                       throw new InvalidOperationException("Connection string 'HomeDb' not found.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IUserDbService, UserDbService>();
+builder.Services.AddScoped<ITickerDbService, TickerDbService>();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
