@@ -18,7 +18,6 @@ var connectionString = builder.Configuration.GetConnectionString("HomeDb") ??
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddScoped<IUserDbService, UserDbService>();
 builder.Services.AddScoped<ITickerDbService, TickerDbService>();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
