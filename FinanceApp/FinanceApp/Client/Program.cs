@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
 using Syncfusion.Blazor;
+using Syncfusion.Licensing;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -20,7 +21,7 @@ builder.Services.AddApiAuthorization();
 
 builder.Services.AddMudServices();
 
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("ddd");
+SyncfusionLicenseProvider.RegisterLicense("ddd");
 
 builder.Services.AddSyncfusionBlazor();
 
