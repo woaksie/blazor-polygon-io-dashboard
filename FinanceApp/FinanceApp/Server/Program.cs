@@ -5,6 +5,7 @@ using FinanceApp.Server.Services.Implementations;
 using FinanceApp.Server.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<ITickerDbService, TickerDbService>();
 builder.Services.AddScoped<IUserDbService, UserDbService>();
+builder.Services.AddScoped<IStockApiService, PolygonApiService>();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
